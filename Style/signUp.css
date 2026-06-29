@@ -1,0 +1,139 @@
+/* Facebook Create Account Themed Style */
+@keyframes fadeInDown {
+	from {
+		opacity: 0;
+		transform: translateY(-30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+body {
+	background: linear-gradient(135deg, #5774f3 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
+	background-size: 400% 400%;
+	background-attachment: fixed;
+	font-family: 'Segoe UI', Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+}
+
+.card {
+	background: #fff;
+	border-radius: 8px;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+	padding: 32px 28px;
+	width: 100%;
+	max-width: 400px;
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+	animation: fadeInDown 0.6s ease-out;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+}
+
+.title {
+	color: #1877f2;
+	font-size: 2rem;
+	font-weight: 700;
+	margin-bottom: 8px;
+	text-align: center;
+}
+
+.field {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.label-text {
+	font-size: 1rem;
+	color: #050505;
+	font-weight: 500;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+	padding: 10px;
+	border: 1px solid #ccd0d5;
+	border-radius: 6px;
+	font-size: 1rem;
+	background: #f5f6fa;
+	transition: border-color 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+	border-color: #1877f2;
+	outline: none;
+}
+
+p.field-error,
+.field-error {
+	margin: 4px 0 0 !important;
+	padding: 7px 10px !important;
+	border: 1px solid #f8b4b4 !important;
+	border-radius: 6px !important;
+	background: #ffeaea !important;
+	color: #d93025 !important;
+	font-size: 0.88rem !important;
+	font-weight: 600 !important;
+	line-height: 1.4 !important;
+	display: block !important;
+	box-shadow: 0 1px 2px rgba(217, 48, 37, 0.12) !important;
+}
+
+.btn {
+	padding: 12px 0;
+	border: none;
+	border-radius: 6px;
+	font-size: 1.1rem;
+	font-weight: 600;
+	cursor: pointer;
+	margin-top: 10px;
+	transition: background 0.2s;
+}
+
+.btn-primary {
+	background: #1877f2;
+	color: #fff;
+}
+
+.btn-primary:hover {
+	background: #165ec9;
+}
+
+h3 {
+	text-align: center;
+	font-size: 0.95rem;
+	color: #65676b;
+	margin: 10px 0 0 0;
+	font-weight: 500;
+}
+
+h3 a {
+	color: #1877f2;
+	text-decoration: none;
+	font-weight: 600;
+	transition: all 0.2s ease;
+}
+
+h3 a:hover {
+	text-decoration: underline;
+	color: #165ec9;
+}
