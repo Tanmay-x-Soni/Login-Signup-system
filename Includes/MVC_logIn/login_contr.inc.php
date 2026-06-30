@@ -31,5 +31,4 @@ function is_password_incorrect(object $pdo , string $password){
         else{
             return false;
         }
-
 }
