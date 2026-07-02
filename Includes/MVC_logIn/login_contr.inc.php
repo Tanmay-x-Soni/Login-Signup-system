@@ -21,11 +21,11 @@ function is_username_incorrect(object $pdo , string $username ){
         }
 }
 
-function is_password_incorrect(object $pdo , string $password){
+function is_password_incorrect(object $pdo , string $username , string $password){
 
-        $D_password = get_password_login($pdo , $password);
+        $D_password = get_password_login($pdo , $username);
 
-        if(!password_verify($password , $D_password)){
+        if(!$D_password || !password_verify($password , $D_password)){
             return true;
         }
         else{
