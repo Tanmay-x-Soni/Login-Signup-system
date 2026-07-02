@@ -83,6 +83,21 @@ input[type="password"]:focus {
 	outline: none;
 }
 
+p.field-error,
+.field-error {
+	margin: 4px 0 0 !important;
+	padding: 7px 10px !important;
+	border: 1px solid #f8b4b4 !important;
+	border-radius: 6px !important;
+	background: #ffeaea !important;
+	color: #d93025 !important;
+	font-size: 0.88rem !important;
+	font-weight: 600 !important;
+	line-height: 1.4 !important;
+	display: block !important;
+	box-shadow: 0 1px 2px rgba(217, 48, 37, 0.12) !important;
+}
+
 .btn {
 	padding: 12px 0;
 	border: none;
