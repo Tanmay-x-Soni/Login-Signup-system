@@ -18,10 +18,8 @@ $password = $_POST["password"];
             }
 
             if(is_username_incorrect($pdo , $username )){
-                $login_errors['incorrect_username'] = "your username is incorrect!";
-            }
-
-            if(is_password_incorrect($pdo , $password)){
+                $login_errors['incorrect_username'] = "Username is incorrect!";
+            } elseif(is_password_incorrect($pdo , $username , $password)){
                 $login_errors['incorrect_password'] = "Password is incorrect!";
             }
 
@@ -29,14 +27,25 @@ $password = $_POST["password"];
 
              if($login_errors){
                 $_SESSION["login_errors"] = $login_errors;
-
+                $loginData = [
+                    "username" => $username
+                ];
+                $_SESSION["login_data"] = $loginData;
                 header("Location: ../logIn.php");
                 die();
              }
+            
+            $userData = get_user_data_login($pdo, $username);
+            if($userData){
+                $_SESSION["username"] = $userData["USERNAME"];
+                $_SESSION["email"] = $userData["EMAIL"];
+                $_SESSION["id"] = $userData["ID"];
+            }
 
-             unset($_SESSION["login_errors"]);
+            unset($_SESSION["login_data"]);
+            unset($_SESSION["login_errors"]);
 
-             header("Location: ../logIn.php");
+             header("Location: ../dashboard.php");
             $statement = null;
             $pdo = null;
             die();
