@@ -1,3 +1,8 @@
+<?php 
+require_once 'Includes/config_sessions.inc.php';
+require_once 'Includes/MVC_login/login_view.inc.php';
+$login_errors = get_login_errors();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,13 +22,13 @@
                     <span class="label-text">
                         Username
                     </span>
-                    <input type="text" name="username" placeholder="Enter Username">
+                    <?php getUsername_input($login_errors)?>
                 </label>
                 <label  class="field">
                     <span class="label-text">
                         Password
                     </span>
-                    <input type="password" name="password" placeholder="Enter Password">
+                    <?php getPassword_input($login_errors) ?>
                 </label>
                 <button type="submit" class="btn btn-primary">Log In</button>
                 <h3> Don't have an account ? <a href="signUp.php">Sign Up</a></h3>
@@ -32,3 +37,7 @@
     </div>
 </body>
 </html>
+<?php
+unset($_SESSION["login_data"]);
+unset($_SESSION["login_errors"]);
+?>
