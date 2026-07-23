@@ -43,10 +43,9 @@ Logout
 
 
 <div class="profile-card">
-
 <div class="profile-image">
 
-<img <?php if ($_SESSION["username"]== "Tanmay1"){
+<img <?php if ($_SESSION["username"]== "Tanmay"){
     echo'src="images/tanmayAvatar.png"';
 }
 else {echo'src="images/avatar.png"';}
