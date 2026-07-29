@@ -12,7 +12,7 @@ if(!isset($_SESSION['username']))
 $username = $_SESSION['username'];
 $email = $_SESSION['email'];      // if available
 $userid = $_SESSION['id'];
-$account_created_at = $_SESSION['created_at'] ;       // optional
+$account_created_at = $_SESSION['created_at'];       // optional
 ?>
 
 <!DOCTYPE html>
