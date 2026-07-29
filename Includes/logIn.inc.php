@@ -2,7 +2,7 @@
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
 
-$username = $_POST["username"];
+$identifier = trim($_POST["username"]);
 $password = $_POST["password"];
 
     
@@ -13,13 +13,13 @@ $password = $_POST["password"];
 
             $login_errors =[];
 
-            if(is_input_empty($username , $password)){
+            if(is_input_empty($identifier , $password)){
                 $login_errors['empty_input'] ="Fill in all the fields!";
             }
 
-            if(is_username_incorrect($pdo , $username )){
-                $login_errors['incorrect_username'] = "Username is incorrect!";
-            } elseif(is_password_incorrect($pdo , $username , $password)){
+            if(is_identifier_incorrect($pdo , $identifier )){
+                $login_errors['incorrect_username'] = "Username or Email is incorrect!";
+            } elseif(is_password_incorrect($pdo , $identifier , $password)){
                 $login_errors['incorrect_password'] = "Password is incorrect!";
             }
 
@@ -28,18 +28,19 @@ $password = $_POST["password"];
              if($login_errors){
                 $_SESSION["login_errors"] = $login_errors;
                 $loginData = [
-                    "username" => $username
+                    "username" => $identifier
                 ];
                 $_SESSION["login_data"] = $loginData;
                 header("Location: ../logIn.php");
                 die();
              }
             
-            $userData = get_user_data_login($pdo, $username);
+            $userData = get_user_data_login($pdo, $identifier);
             if($userData){
                 $_SESSION["username"] = $userData["USERNAME"];
                 $_SESSION["email"] = $userData["EMAIL"];
                 $_SESSION["id"] = $userData["ID"];
+                $_SESSION["created_at"] = $userData["CREATED_AT"];
             }
 
             unset($_SESSION["login_data"]);
