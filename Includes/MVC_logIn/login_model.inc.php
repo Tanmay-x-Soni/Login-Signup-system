@@ -1,31 +1,31 @@
 <?php 
 declare(strict_types=1);
 
-function get_username_login(object $pdo , string $username){
+function get_identifier_login(object $pdo , string $identifier){
 
-    $query = "SELECT USERNAME FROM accounts WHERE USERNAME = :username;";
+    $query = "SELECT USERNAME FROM accounts WHERE USERNAME = :identifier OR EMAIL = :identifier;";
     $statement = $pdo->prepare($query);
-    $statement->bindParam(":username" , $username);
+    $statement->bindParam(":identifier" , $identifier);
     $statement->execute();
 
     return $statement->fetch(PDO::FETCH_ASSOC);
 }
 
-function get_password_login(object $pdo , string $username){
+function get_password_login(object $pdo , string $identifier){
     
-    $query = "SELECT PASSWORD FROM accounts WHERE USERNAME = :username;";
+    $query = "SELECT PASSWORD FROM accounts WHERE USERNAME = :identifier OR EMAIL = :identifier;";
     $statement = $pdo->prepare($query);
-    $statement->bindParam(":username" , $username);
+    $statement->bindParam(":identifier" , $identifier);
     $statement->execute();
 
     $result = $statement->fetch(PDO::FETCH_ASSOC);
     return $result ? $result["PASSWORD"] : false;
 }
 
-function get_user_data_login(object $pdo , string $username){
-    $query = "SELECT ID, USERNAME, EMAIL FROM accounts WHERE USERNAME = :username;";
+function get_user_data_login(object $pdo , string $identifier){
+    $query = "SELECT ID, USERNAME, EMAIL , CREATED_AT FROM accounts WHERE USERNAME = :identifier OR EMAIL = :identifier;";
     $statement = $pdo->prepare($query);
-    $statement->bindParam(":username" , $username);
+    $statement->bindParam(":identifier" , $identifier);
     $statement->execute();
 
     return $statement->fetch(PDO::FETCH_ASSOC);

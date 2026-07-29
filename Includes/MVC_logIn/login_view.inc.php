@@ -21,7 +21,7 @@ function getUsername_input($errors = []){
         $value = htmlspecialchars($_SESSION["login_data"]["username"], ENT_QUOTES, 'UTF-8');
     }
 
-    echo '<input type="text" name="username" placeholder="Enter Username" value="' . $value . '">';
+    echo '<input type="text" name="username" placeholder="Enter Username or Email" value="' . $value . '">';
 
     if (isset($errors["incorrect_username"])){
         $message = $errors["incorrect_username"];
