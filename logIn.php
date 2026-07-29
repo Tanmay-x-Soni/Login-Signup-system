@@ -20,7 +20,7 @@ $login_errors = get_login_errors();
                 </h1>
                 <label  class="field">
                     <span class="label-text">
-                        Username
+                        Username or Email
                     </span>
                     <?php getUsername_input($login_errors)?>
                 </label>

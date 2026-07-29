@@ -11,7 +11,8 @@ if(!isset($_SESSION['username']))
 // Assuming you stored these during login
 $username = $_SESSION['username'];
 $email = $_SESSION['email'];      // if available
-$userid = $_SESSION['id'];        // optional
+$userid = $_SESSION['id'];
+$account_created_at = $_SESSION['created_at'] ;       // optional
 ?>
 
 <!DOCTYPE html>
@@ -115,6 +116,18 @@ echo "Not Available";
 <p class="active">
 
 Active User
+
+</p>
+
+</div>
+
+<div class="box">
+
+<h3>Account Created At</h3>
+
+<p>
+
+<?php echo htmlspecialchars($account_created_at); ?>
 
 </p>
 
