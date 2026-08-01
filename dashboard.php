@@ -40,6 +40,9 @@ $account_created_at = $_SESSION['created_at'];       // optional
 Logout
 </a>
 
+<a href="completeProfile.php" class="logout-btn">
+Edit
+</a>
 </div>
 
 
