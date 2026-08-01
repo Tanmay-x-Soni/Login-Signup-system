@@ -9,11 +9,18 @@ $signup_errors = get_signup_errors();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
-    <link rel="stylesheet" href="Style/signUp.css">
+    <link rel="stylesheet" href="/PHP%20CODING/Projects/Login-Signup-system/Style/signUp.css?v=1">
 </head>
 <body>
+            <div class="background">
+            <span class="shape shape1"></span>
+            <span class="shape shape2"></span>
+            <span class="shape shape3"></span>
+        </div>
      <main class="container">
-        <form class="card" method="post" action="Includes/signUp.inc.php" novalidate >
+        <div class="card">
+       
+        <form  method="post" action="Includes/signUp.inc.php" novalidate >
                                     <!-- no validate means the browser will stop checking for input types  -->
             <h1 class="title">Create Account</h1>
 
@@ -32,6 +39,8 @@ $signup_errors = get_signup_errors();
             <button type="submit" class="btn btn-primary">Sign Up</button>
              <h3> Already have an account ? <a href="logIn.php">Log In</a></h3>
         </form>
+             
+        </div>
        
     </main>
 </body>
