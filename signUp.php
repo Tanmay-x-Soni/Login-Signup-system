@@ -9,7 +9,7 @@ $signup_errors = get_signup_errors();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
-    <link rel="stylesheet" href="/PHP%20CODING/Projects/Login-Signup-system/Style/signUp.css?v=1">
+    <link rel="stylesheet" href="./Style/signUp.css?v=1">
 </head>
 <body>
             <div class="background">
