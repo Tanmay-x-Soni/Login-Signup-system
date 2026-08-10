@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Complete profile</title>
-    <link rel="stylesheet" href="Style/profileSetup.css">
+    <link rel="stylesheet" href="Style/profileSetup.css?v=2">
 </head>
 <body>
      <main class="container">
@@ -29,21 +29,46 @@
                 <?php //signup_phone_number_input($signup_errors);  ?>
                 <input type="tel" name="phone_number" placeholder="Enter your phone number" maxlength="10" pattern="[0-9]{10}">
             </label>
-            <label class="field">
-                <span class="label-text">Gender</span>
-                <?php //signup_gender_input($signup_errors);  ?>
-                <select name="gender" >
-                    <option value="">Select Gender</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="other">Other</option>
-                </select>
-            </label>
-            <label class="field">
-                <span class="label-text">Date of Birth</span>
-                <?php //signup_date_of_birth_input($signup_errors);  ?>
-                <input type="date" name="date_of_birth" placeholder="YYYY-MM-DD">
-            </label>
+
+     <div class="field-row">
+
+    <label class="field">
+
+        <span class="label-text">Gender</span>
+
+        <?php //signup_gender_input($signup_errors); ?>
+
+        <select name="gender">
+
+            <option value="">Select Gender</option>
+
+            <option value="male">Male</option>
+
+            <option value="female">Female</option>
+
+            <option value="other">Other</option>
+
+        </select>
+
+    </label>
+
+
+    <label class="field">
+
+        <span class="label-text">Date of Birth</span>
+
+        <?php //signup_date_of_birth_input($signup_errors); ?>
+
+        <input
+            type="date"
+            name="date_of_birth"
+            placeholder="YYYY-MM-DD"
+        >
+
+    </label>
+
+</div>
+        
             <label class="field">
                 <span class="label-text">Country</span>
                 <?php //signup_country_input($signup_errors);  ?>
@@ -56,6 +81,15 @@
                     <option value="other">Other</option>
                 </select>
             </label>
+            <label class="field">
+    <span class="label-text">Bio</span>
+
+    <textarea
+        name="bio"
+        rows="4"
+        placeholder="Tell us something about yourself..."
+    ></textarea>
+</label>
             <button type="submit" class="btn btn-primary">Done</button>
         </form>
        
