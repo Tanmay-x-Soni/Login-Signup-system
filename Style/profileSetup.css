@@ -235,3 +235,36 @@ padding:20px;
 }
 
 }
+
+
+/* =================================
+   GENDER + DOB — COMPACT ROW
+================================= */
+
+.field-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 16px;
+    width: 100%;
+}
+
+.field-row .field {
+    width: 100%;
+    min-width: 0;
+    margin-bottom: 22px;
+}
+
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 600px) {
+
+    .field-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+}
+
