@@ -24,7 +24,7 @@ function is_fullname_invalid(string $fullName): bool {
 }
 
 
-//first comes to this function
+//first call comes to this function
 function get_fullname_error(string $fullName): ?string {
     if (is_fullname_empty($fullName)) {
         return 'Full name is required.';
@@ -159,7 +159,5 @@ function get_bio_error(string $bio): ?string {
 }
 
 function set_profile_data(object $pdo , string $fullName , string $phoneNumber ,string $gender ,string $DOB , string $country ,string $bio){
-
 }
-
 ?>

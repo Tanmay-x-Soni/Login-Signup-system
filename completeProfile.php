@@ -13,7 +13,7 @@
 </head>
 <body>
      <main class="container">
-        <form class="card" method="post"  novalidate >
+        <form class="card" method="post" action="Includes/completeProfile.inc.php" novalidate >
                                     <!-- no validate means the browser will stop checking for input types  -->
             <h1 class="title">Complete Profile</h1>
             
@@ -27,7 +27,7 @@
             <label class="field">
                 <span class="label-text">Phone Number</span>
                 <?php //signup_phone_number_input($signup_errors);  ?>
-                <input type="tel" name="phone_number" placeholder="Enter your phone number" maxlength="10" pattern="[0-9]{10}">
+                <input type="tel" name="phone_number" placeholder="Enter your number (Optional)" maxlength="10" pattern="[0-9]{10}">
             </label>
 
      <div class="field-row">
