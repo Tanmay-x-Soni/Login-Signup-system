@@ -2,6 +2,39 @@
 
 declare(strict_types=1);
 
+function normalize_gender(string $gender): string {
+    $gender = strtolower(trim($gender));
+    $map = [
+        'male' => 'Male',
+        'female' => 'Female',
+        'other' => 'Other'
+    ];
+
+    return $map[$gender] ?? ucfirst($gender);
+}
+
+function normalize_country(string $country): string {
+    $country = trim($country);
+    $countryKey = strtolower($country);
+    $map = [
+        'india' => 'India',
+        'usa' => 'United States',
+        'united states' => 'United States',
+        'united kingdom' => 'United Kingdom',
+        'uk' => 'United Kingdom',
+        'canada' => 'Canada',
+        'australia' => 'Australia',
+        'germany' => 'Germany',
+        'france' => 'France',
+        'china' => 'China',
+        'japan' => 'Japan',
+        'brazil' => 'Brazil',
+        'other' => 'Other'
+    ];
+
+    return $map[$countryKey] ?? $country;
+}
+
 function is_fullname_empty(string $fullName): bool {
     return trim($fullName) === '';
 }
@@ -80,7 +113,8 @@ function is_gender_invalid(string $gender): bool {
 }
 
 function get_gender_error(string $gender): ?string {
-    if (trim($gender) === '') {
+    $gender = trim($gender);
+    if ($gender === '') {
         return null;
     }
 
@@ -120,7 +154,22 @@ function is_country_invalid(string $country): bool {
         return false;
     }
 
-    $allowedCountries = ['india', 'usa', 'china', 'japan', 'other'];
+    $allowedCountries = [
+        'india',
+        'usa',
+        'united states',
+        'united kingdom',
+        'uk',
+        'canada',
+        'australia',
+        'germany',
+        'france',
+        'china',
+        'japan',
+        'brazil',
+        'other'
+    ];
+
     return !in_array(strtolower($country), $allowedCountries, true);
 }
 
@@ -158,7 +207,7 @@ function get_bio_error(string $bio): ?string {
     return null;
 }
 
-function set_user(object $pdo , string $fullName , string $phoneNumber ,string $gender ,string $DOB , string $country ,string $bio , string $userId){
+function set_user(object $pdo , string $fullName , string $phoneNumber ,string $gender ,string $DOB , string $country ,string $bio , int $userId){
         set_profile_data($pdo , $fullName , $phoneNumber , $gender , $DOB , $country , $bio , $userId);
 }
 ?>
