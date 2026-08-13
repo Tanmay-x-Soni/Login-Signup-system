@@ -3,17 +3,28 @@
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 
+//user must login first
+session_start();
+require_once __DIR__ . '/MVC_profile/profile_contr.inc.php';
+
+if (!isset($_SESSION["id"])) {
+    header("Location: ../logIn.php");
+    exit();
+}
+$userId = $_SESSION["id"];
+//userid form login page
+
+
 $fullName = $_POST["full_name"];
 $phoneNumber = $_POST["phone_number"];
-$gender = $_POST["gender"];
+$gender = normalize_gender($_POST["gender"] ?? '');
 $DOB = $_POST["date_of_birth"];
-$country = $_POST["country"];
+$country = normalize_country($_POST["country"] ?? '');
 $bio = $_POST["bio"];
 
 try{
     require 'dbh.inc.php';
      require_once __DIR__ . '/MVC_profile/profile_model.inc.php';
-     require_once __DIR__ . '/MVC_profile/profile_contr.inc.php';
 
      $profile_errors = [];
 
@@ -69,9 +80,9 @@ try{
 
       unset($_SESSION["profile_errors"]);
       unset($_SESSION["profile_data"]);
-      set_profile_data($pdo , $fullName , $phoneNumber , $gender , $DOB , $country , $bio);
+      set_user($pdo , $fullName , $phoneNumber , $gender , $DOB , $country , $bio , $userId);
 
-     header("Location: ../completeProfile.php");
+     header("Location: ../dashboard.php");
         $statement = null;
         $pdo = null;
         die();
