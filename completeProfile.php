@@ -1,7 +1,7 @@
-<?php 
-// require_once 'Includes/config_sessions.inc.php';
-// require_once 'Includes/MVC_signUp/signup_view.inc.php';
-// $signup_errors = get_signup_errors();
+<?php
+session_start();
+require_once __DIR__ . '/Includes/MVC_profile/profile_view.inc.php';
+$profile_errors = get_profile_errors();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,87 +16,41 @@
         <form class="card" method="post" action="Includes/completeProfile.inc.php" novalidate >
                                     <!-- no validate means the browser will stop checking for input types  -->
             <h1 class="title">Complete Profile</h1>
-            
+
             <label class="field">
                 <span class="label-text">Full Name</span>
-                <input type="text" name="full_name" placeholder="Your Full name">
-                <?php //signup_full_name_input($signup_errors);  ?>
+                <?php profile_full_name_input($profile_errors); ?>
             </label>
-
 
             <label class="field">
                 <span class="label-text">Phone Number</span>
-                <?php //signup_phone_number_input($signup_errors);  ?>
-                <input type="tel" name="phone_number" placeholder="Enter your number (Optional)" maxlength="10" pattern="[0-9]{10}">
+                <?php profile_phone_input($profile_errors); ?>
             </label>
 
-     <div class="field-row">
+            <div class="field-row">
+                <label class="field">
+                    <span class="label-text">Gender</span>
+                    <?php profile_gender_input($profile_errors); ?>
+                </label>
 
-    <label class="field">
+                <label class="field">
+                    <span class="label-text">Date of Birth</span>
+                    <?php profile_dob_input($profile_errors); ?>
+                </label>
+            </div>
 
-        <span class="label-text">Gender</span>
-
-        <?php //signup_gender_input($signup_errors); ?>
-
-        <select name="gender">
-
-            <option value="">Select Gender</option>
-
-            <option value="male">Male</option>
-
-            <option value="female">Female</option>
-
-            <option value="other">Other</option>
-
-        </select>
-
-    </label>
-
-
-    <label class="field">
-
-        <span class="label-text">Date of Birth</span>
-
-        <?php //signup_date_of_birth_input($signup_errors); ?>
-
-        <input
-            type="date"
-            name="date_of_birth"
-            placeholder="YYYY-MM-DD"
-        >
-
-    </label>
-
-</div>
-        
             <label class="field">
                 <span class="label-text">Country</span>
-                <?php //signup_country_input($signup_errors);  ?>
-                <select name="country">
-                    <option value="">Select country</option>
-                    <option value="india">India</option>
-                    <option value="usa">USA</option>
-                    <option value="china">China</option>
-                    <option value="japan">Japan</option>
-                    <option value="other">Other</option>
-                </select>
+                <?php profile_country_input($profile_errors); ?>
             </label>
-            <label class="field">
-    <span class="label-text">Bio</span>
 
-    <textarea
-        name="bio"
-        rows="4"
-        placeholder="Tell us something about yourself..."
-    ></textarea>
-</label>
+            <label class="field">
+                <span class="label-text">Bio</span>
+                <?php profile_bio_input($profile_errors); ?>
+            </label>
+
             <button type="submit" class="btn btn-primary">Done</button>
         </form>
-       
     </main>
 </body>
 </html>
-<?php
-// unset($_SESSION['signup_data']);
-// unset($_SESSION['signup_errors']);
-?>
