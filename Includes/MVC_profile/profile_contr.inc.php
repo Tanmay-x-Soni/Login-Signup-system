@@ -158,6 +158,7 @@ function get_bio_error(string $bio): ?string {
     return null;
 }
 
-function set_profile_data(object $pdo , string $fullName , string $phoneNumber ,string $gender ,string $DOB , string $country ,string $bio){
+function set_user(object $pdo , string $fullName , string $phoneNumber ,string $gender ,string $DOB , string $country ,string $bio , string $userId){
+        set_profile_data($pdo , $fullName , $phoneNumber , $gender , $DOB , $country , $bio , $userId);
 }
 ?>
