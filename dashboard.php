@@ -2,9 +2,9 @@
 session_start();
 
 // User must login first
-if(!isset($_SESSION['username']))
+if(!isset($_SESSION['id']))
 {
-    header("Location: login.php");
+    header("Location: logIn.php");
     exit();
 }
 
