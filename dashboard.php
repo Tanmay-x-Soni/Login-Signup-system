@@ -1,18 +1,5 @@
 <?php
-session_start();
-
-// User must login first
-if(!isset($_SESSION['id']))
-{
-    header("Location: logIn.php");
-    exit();
-}
-
-// Assuming you stored these during login
-$username = $_SESSION['username'];
-$email = $_SESSION['email'];      // if available
-$userid = $_SESSION['id'];
-$account_created_at = $_SESSION['created_at'];       // optional
+require_once __DIR__ . '/Includes/dashboard.inc.php';
 ?>
 
 <!DOCTYPE html>
@@ -46,101 +33,7 @@ Edit
 </div>
 
 
-<div class="profile-card">
-<div class="profile-image">
-
-<img <?php if ($_SESSION["username"]== "Tanmay"){
-    echo'src="images/tanmayAvatar.png"';
-}
-else {echo'src="images/avatar.png"';}
-?>
->
-
-</div>
-
-<h1>
-<?php echo htmlspecialchars($username); ?>
-</h1>
-
-<p class="subtitle">
-Welcome Back 👋
-</p>
-
-<div class="info">
-
-<div class="box">
-
-<h3>Username</h3>
-
-<p>
-
-<?php echo htmlspecialchars($username); ?>
-
-</p>
-
-</div>
-
-
-<div class="box">
-
-<h3>Email</h3>
-
-<p>
-
-<?php echo htmlspecialchars($email); ?>
-
-</p>
-
-</div>
-
-
-<div class="box">
-
-<h3>User ID</h3>
-
-<p>
-
-<?php
-if(isset($userid))
-echo $userid;
-else
-echo "Not Available";
-?>
-
-</p>
-
-</div>
-
-
-<div class="box">
-
-<h3>Status</h3>
-
-<p class="active">
-
-Active User
-
-</p>
-
-</div>
-
-<div class="box">
-
-<h3>Account Created At</h3>
-
-<p>
-
-<?php echo htmlspecialchars($account_created_at); ?>
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
+<?php dashboard_render_profile_card($dashboardData); ?>
 
 </body>
 </html>
