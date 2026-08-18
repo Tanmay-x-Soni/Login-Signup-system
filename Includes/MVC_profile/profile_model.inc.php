@@ -28,4 +28,18 @@ function set_profile_data(object $pdo , string $fullName , string $phoneNumber ,
         $statement -> execute();
 }
 
+
+function get_profile_data(object $pdo , int $userId){
+
+        $query = "SELECT FULL_NAME , PHONE , GENDER , DOB , COUNTRY , BIO FROM accounts WHERE ID = :id;";
+
+        $statement= $pdo -> prepare($query);
+
+        $statement->bindparam(":id" , $userId , PDO::PARAM_INT );
+
+        $statement ->execute();
+       
+        return $statement->fetch(PDO::FETCH_ASSOC);
+}
+
 ?>
