@@ -19,4 +19,3 @@ function get_dashboard_data(object $pdo, int $userId): array
 }
 
 ?>
-?>
